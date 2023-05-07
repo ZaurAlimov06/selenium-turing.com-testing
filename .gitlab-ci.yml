@@ -1,9 +1,11 @@
 run_unit_test:
-    stage: test
-    image: gradle:8.1.1
-    script:
-        - gradle test
-    artifacts:
-    paths:
-      - build/reports/jacoco/test/html
-    expire_in: 1 week
+  stage: test
+  image: gradle:8.1.1
+  script:
+    - gradle test
+  artifacts:
+    reports:
+      junit:
+        - build/test-results/test/*.xml
+      coverage:
+        - build/reports/jacoco/test/html
