@@ -1,9 +1,23 @@
 plugins {
     id 'application'
+    id 'java'
+    id 'jacoco'
 }
 
 repositories {
     mavenCentral()
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
+}
+
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
 }
 
 dependencies {
@@ -19,5 +33,5 @@ testing {
 }
 
 application {
-    mainClass = 'MaxCalculator'
+    mainClass = 'RectangleTest.App'
 }
