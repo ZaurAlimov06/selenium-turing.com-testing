@@ -1,15 +1,9 @@
-run_unit_test:
-  stage: test
-  image: gradle:8.1.1
-  script:
-    - gradle test
-  artifacts:
-    reports:
-      junit:
-        - build/test-results/test/*.xml
-      cobertura:
-        - build/reports/cobertura/coverage.xml
-      coverage:
+test_with_coverage:
+    stage: test
+    image: gradle:8.1.1
+    script:
+        - gradle test
+    artifacts:
         paths:
-          - build/reports/jacoco/test/html
-  expire_in: 1 week
+            - build/reports/jacoco/test/html
+        expire_in: 1 week
