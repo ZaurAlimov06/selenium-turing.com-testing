@@ -1,0 +1,3 @@
+rootProject.name = 'jo76wj'
+include 'jo76wj'
+project(':jo76wj').projectDir = new File(settingsDir, 'jo76wj')
